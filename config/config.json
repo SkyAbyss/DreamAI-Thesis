@@ -1,0 +1,76 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "utterances": [
+        "wake up Dream",
+        "hello Dream",
+        "hey dream"
+      ],
+      "response": [
+        "Systems are operational. How can I help you?",
+        "This is Dream, always at your service."
+      ]
+    },
+    {
+      "tag": "applications",
+      "utterances": [
+        "open",
+        "launch",
+        "app",
+        "application"
+      ],
+      "response": [
+        "With pleasure",
+        "Opening"
+      ]
+    },
+    {
+      "tag": "alarm",
+      "utterances": [
+        "set alarm",
+        "wake me up"
+      ],
+      "response": [
+        "Right away",
+        "Setting up"
+      ]
+    },
+    {
+      "tag": "google_search",
+      "utterances": [
+        "search",
+        "who is ",
+        "who are ",
+        "what is ",
+        "why "
+      ],
+      "response": [
+        "I found something",
+        "Maybe this will interest you?",
+        "Give me a second"
+      ]
+    },
+    {
+      "tag": "youtube_search",
+      "utterances": [
+        "play video on youtube",
+        "search video on youtube",
+        "play"
+      ],
+      "response": [
+        "Right away",
+        "Give me a second"
+      ]
+    },
+    {
+      "tag": "translate",
+      "utterances": [
+        "translate",
+        "how to pronounce"
+      ],
+      "response": [
+      ]
+    }
+  ]
+}
