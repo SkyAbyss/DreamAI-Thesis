@@ -63,13 +63,12 @@ class TrainingModel:
     def get_intent(self, model, command):
         bow = self.bag_of_words(command, self.words)
         result = model.predict(np.array([bow]))[0]
-        thresh = 0.4
+        thresh = 0.2
 
         y_pred = [[idx, res] for idx, res in enumerate(result) if res > thresh]
         y_pred.sort(key=lambda x: x[1], reverse=True)
 
         intent = self.classes[y_pred[0][0]]
-
         return intent
 
     def bag_of_words(self, command, words):
@@ -93,4 +92,7 @@ class TrainingModel:
         list_of_intents = data['intents']
         for intent in list_of_intents:
             if intent['tag'] == tag:
-                return random.choice(intent['response'])
+                if len(intent['response']) > 0:
+                    return random.choice(intent['response'])
+                else:
+                    return None
