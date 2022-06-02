@@ -8,6 +8,7 @@ from intents.applications import Applications
 from intents.translation import Translation
 from intents.youtube_search import YoutubeSearch
 from model.model_training import TrainingModel
+from intents.google_search import GoogleSearch
 
 
 def read_voice_cmd(recognizer):
@@ -60,3 +61,6 @@ if __name__ == '__main__':
                 Alarm(command, response).start()
             elif intent == 'translate':
                 Translation(command).translate()
+            elif intent == 'google_search':
+                GoogleSearch(command, response).search()
+

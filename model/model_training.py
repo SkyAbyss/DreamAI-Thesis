@@ -5,8 +5,8 @@ import nltk
 import numpy as np
 import tensorflow as tf
 from nltk.stem import WordNetLemmatizer
-from tensorflow.keras import Sequential
-from tensorflow.keras.layers import Dense, Dropout
+from keras.models import Sequential
+from keras.layers import Dense, Dropout
 
 
 class TrainingModel:

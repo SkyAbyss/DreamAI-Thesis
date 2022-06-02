@@ -22,7 +22,7 @@ class YoutubeSearch:
             youtube = build('youtube', 'v3', developerKey=YoutubeSearch.DEVELOPER_KEY)
 
             search = utils.get_search_value(self.command, YoutubeSearch.INTENT_NAME)
-            search_response = youtube.search().list(
+            search_response = search().list(
                 q=search,
                 part='id, snippet',
                 maxResults=1
