@@ -17,6 +17,7 @@ class Alarm(threading.Thread):
             new = datetime.strptime(new, "%Y-%m-%d %H:%M:00")
             print('Current time is : ' + str(datetime.now()))
             if datetime.now() > new:
+
                 utils.speak('Alarm time is greater than current time sir.')
             else:
                 utils.speak(self.response)

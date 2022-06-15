@@ -71,6 +71,15 @@
       ],
       "response": [
       ]
+    },
+    {
+      "tag": "nothing",
+      "utterances": [
+        "",
+        " "
+      ],
+      "response": [
+      ]
     }
   ]
 }

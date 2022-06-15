@@ -58,5 +58,5 @@ class Applications:
         utils.speak(response=self.response)
         output = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
 
-        if str(output[1], 'utf-8') is not '':
+        if str(output[1], 'utf-8') != '':
             utils.speak('I am sorry sir, The app which you are looking for is not installed in my database.')

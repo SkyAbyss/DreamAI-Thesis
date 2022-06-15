@@ -1,21 +1,24 @@
 import speech_recognition as sr
-
 import config
 import model
 import utils
+import keyboard
+import gui
 from intents.alarm import Alarm
 from intents.applications import Applications
-from intents.translation import Translation
+# from intents.translation import Translation
+from subprocess import Popen
 from intents.youtube_search import YoutubeSearch
 from model.model_training import TrainingModel
 from intents.google_search import GoogleSearch
 
 
-def read_voice_cmd(recognizer):
+def the_command(recognizer):
     voice_input = ''
     try:
         with sr.Microphone() as source:
             print('Listening...')
+            recognizer.adjust_for_ambient_noise(source=source, duration=0.2)
             audio = recognizer.listen(source=source, timeout=5, phrase_time_limit=5)
         voice_input = recognizer.recognize_google(audio)
         print('Input : {}'.format(voice_input))
@@ -31,6 +34,18 @@ def read_voice_cmd(recognizer):
     return voice_input.lower()
 
 
+def keyboard_activation():
+
+    k = keyboard.is_pressed('ScrLk')
+
+    if k is True:
+        key = True
+    else:
+        key = False
+
+    return key
+
+
 if __name__ == '__main__':
     words = model.words
     classes = model.classes
@@ -40,27 +55,34 @@ if __name__ == '__main__':
 
     recognizer = sr.Recognizer()
     os = config.OS_NAME
+
     session = False
+
     while True:
-        command = read_voice_cmd(recognizer)
-        if command or command is not '':
+        session = keyboard_activation()
+        command = the_command(recognizer)
+        if command or command != '':
             intent = training_model.get_intent(trained_model, command)
             response = TrainingModel.get_response(intent, config.DATA)
             print(intent, ' : ', response)
-
             if intent == 'greeting':
                 utils.speak(response=response)
                 session = True
+                # Popen('python gui/user_interface.py')
             elif session and intent == 'applications':
                 Applications(response).launch(command)
                 session = False
             elif session and intent == 'youtube_search':
                 YoutubeSearch(command, response).launch()
                 session = False
-            elif intent == 'alarm':
+            elif session and intent == 'alarm':
                 Alarm(command, response).start()
-            elif intent == 'translate':
-                Translation(command).translate()
-            elif intent == 'google_search':
-                GoogleSearch(command, response).search()
-
+                session = False
+            # elif session and intent == 'translate':
+            #     Translation(command).translate()
+            #     session = False
+            elif session and intent == 'google_search':
+                GoogleSearch(command, response).open()
+                session = False
+            elif session and intent == 'nothing':
+                session = False

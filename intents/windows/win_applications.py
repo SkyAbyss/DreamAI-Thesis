@@ -29,7 +29,7 @@ class WinApplications:
         for path in paths:
             exe_name = os.path.basename(path).replace('.exe', '')
             utils.speak(exe_name)
-            sentiments = VoiceAnalyzer().recognize()
+            sentiments = VoiceAnalyzer().get_polarity_scores()
             if sentiments:
                 max_key = max(sentiments, key=sentiments.get)
                 if max_key == 'neu' or max_key == 'pos':
