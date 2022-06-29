@@ -1,7 +1,6 @@
 import os
 import re
 import subprocess
-
 import config
 import utils
 from intents import windows
@@ -59,4 +58,4 @@ class Applications:
         output = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
 
         if str(output[1], 'utf-8') != '':
-            utils.speak('I am sorry sir, The app which you are looking for is not installed in my database.')
+            utils.speak('I am sorry, the app which you are looking for is not in my database.')

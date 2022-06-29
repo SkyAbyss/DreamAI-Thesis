@@ -1,14 +1,12 @@
-import fnmatch
-import json
 import os
-import random
 import re
-import webbrowser
-
-import pyttsx3
-import speech_recognition as sr
-
+import json
+import random
 import config
+import pyttsx3
+import fnmatch
+import webbrowser
+import speech_recognition as sr
 from model.voice_analyzer import VoiceAnalyzer
 
 
@@ -100,16 +98,14 @@ def read_voice_cmd():
     try:
         with sr.Microphone() as source:
             print('Listening...')
-            audio = recognizer.listen(source=source, timeout=5, phrase_time_limit=5)
+            recognizer.adjust_for_ambient_noise(source=source, duration=0.2)
+            recognizer.pause_threshold = 0.5
+            audio = recognizer.listen(source=source, phrase_time_limit=5)
         voice_input = recognizer.recognize_google(audio)
         print('Input : {}'.format(voice_input))
-    except sr.UnknownValueError:
+    except (sr.UnknownValueError, sr.WaitTimeoutError, TimeoutError):
         pass
     except sr.RequestError:
         print('Network error.')
-    except sr.WaitTimeoutError:
-        pass
-    except TimeoutError:
-        pass
 
     return voice_input.lower()

@@ -1,6 +1,5 @@
 import json
 import os.path
-
 import config
 import utils
 from model.voice_analyzer import VoiceAnalyzer
@@ -8,7 +7,7 @@ from model.voice_analyzer import VoiceAnalyzer
 
 class WinApplications:
     APP_INSTALLATION_DIRECTORIES = {'C:\\Program Files', 'C:\\Program Files (x86)', 'C:\\Windows\\System32',
-                                    'C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs', 'D:\\'}
+                                    'C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs'}
 
     def __init__(self, app):
         self.app = app

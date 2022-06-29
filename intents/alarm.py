@@ -17,13 +17,12 @@ class Alarm(threading.Thread):
             new = datetime.strptime(new, "%Y-%m-%d %H:%M:00")
             print('Current time is : ' + str(datetime.now()))
             if datetime.now() > new:
-
-                utils.speak('Alarm time is greater than current time sir.')
+                utils.speak('Current time is greater than the requested alarm time.')
             else:
                 utils.speak(self.response)
                 while True:
                     now = datetime.now().strftime('%Y-%m-%d %H:%M:00')
                     now = datetime.strptime(now, "%Y-%m-%d %H:%M:00")
                     if now == new:
-                        utils.speak('Sir, You need to wake up now.')
+                        utils.speak('Bip boop bip boop! My circuits tell me that your time is up.')
                         break

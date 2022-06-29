@@ -1,5 +1,5 @@
-import json
 import os
+import json
 import platform
 
 OS_NAME = platform.uname().system

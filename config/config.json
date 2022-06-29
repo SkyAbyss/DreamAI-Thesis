@@ -8,7 +8,7 @@
         "hey dream"
       ],
       "response": [
-        "Systems are operational. How can I help you?",
+        "Systems online. How can I help you?",
         "This is Dream, always at your service."
       ]
     },
@@ -70,6 +70,18 @@
         "how to pronounce"
       ],
       "response": [
+      ]
+    },
+    {
+      "tag": "shut_down",
+      "utterances": [
+        "good night",
+        "shut down",
+        "sleep"
+      ],
+      "response": [
+        "See you next time",
+        "Goodbye!"
       ]
     },
     {

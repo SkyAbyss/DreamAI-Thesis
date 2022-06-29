@@ -1,17 +1,19 @@
 import nltk
+import ssl
+import config
 
 # Downloading the nltk data
-# try:
-#     _create_unverified_https_context = ssl._create_unverified_context
-# except AttributeError:
-#     pass
-# else:
-#     ssl._create_default_https_context = _create_unverified_https_context
-#
-# nltk.download('punkt')
-# nltk.download('wordnet')
-# nltk.download('vader_lexicon')
-import config
+
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('vader_lexicon')
 
 words = []
 classes = []

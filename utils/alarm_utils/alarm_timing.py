@@ -1,7 +1,5 @@
 import re
-
 import dateparser
-
 from utils import alarm_utils
 
 
