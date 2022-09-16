@@ -70,7 +70,6 @@ if __name__ == '__main__':
                     Alarm(command, response).start()
                     interface.kill()
                     session = False
-                # Pentru Modulul Translate
                 # elif session and intent == 'translate':
                 #     Translation(command).translate()
                 #     interface.kill()
