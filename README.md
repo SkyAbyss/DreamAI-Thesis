@@ -14,4 +14,4 @@ Commands:
 
 -"good night" / "shut down" / "sleep" are used for closing the AI.
 
-P.S. The AI can execute some variations or combine the commands. EX: " play <<name of video>> on youtube" / "open <<name of app>> application".
+P.S. The AI can execute some variations/combinations of commands. EX: " play <<name of video>> on youtube" / "open <<name of app>> application".
