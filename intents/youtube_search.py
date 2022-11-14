@@ -9,7 +9,7 @@ from model.voice_analyzer import VoiceAnalyzer
 
 
 class YoutubeSearch:
-    DEVELOPER_KEY = "AIzaSyDBkNCCDungBJWGjF9wc-7CvTOEvgjwsWQ"
+    DEVELOPER_KEY = "INSERT KEY HERE"
     INTENT_NAME = 'youtube_search'
 
     def __init__(self, command, response):
