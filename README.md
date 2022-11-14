@@ -1,5 +1,9 @@
 Dream AI
 
+
+!! To Activate - create a Google API and change it in :
+
+
 Commands:
 
 -"Hello Dream" / "Wake up Dream" / "Hey Dream" - for activating the AI. An overlay will appear for the user if the AI is active on top of the screen.
