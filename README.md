@@ -1,7 +1,7 @@
 Dream AI
 
 
-!! To Activate - create a Google API key and insert it in : youtube_search.py
+!! To Activate - create a Google API key and insert it in : intents/youtube_search.py 
 
 
 Commands:
